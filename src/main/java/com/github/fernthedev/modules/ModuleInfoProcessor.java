@@ -1,5 +1,6 @@
 package com.github.fernthedev.modules;
 
+import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.config.gson.GsonConfig;
 import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableMap;
@@ -135,12 +136,12 @@ public class ModuleInfoProcessor extends AbstractProcessor {
 
                 getMessager().printMessage(NOTE, "Writing plugin metadata to " + fileObject.toUri());
                 BufferedWriter bufferedWriter = new BufferedWriter(fileObject.openWriter());
+
                 try (bufferedWriter) {
-                    GsonConfig<ModuleInfoJSON> yamlConfig = new GsonConfig<>(moduleInfoJSON, file);
+                    Config<ModuleInfoJSON> yamlConfig = new GsonConfig<>(moduleInfoJSON, file);
 
                     bufferedWriter.write(yamlConfig.configToFileString());
                     bufferedWriter.flush();
-
                 }
 //                try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file.toPath())) {
 //
