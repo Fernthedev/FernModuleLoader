@@ -4,8 +4,9 @@ A light-weight library for loading modules. This does not include any API for th
 # Features
 - Parallel module loading 
     - Modules are loaded in parallel of another. If a module declares a dependency or soft dependency, it will wait if the module system has the module. If it does, it will wait for it to load. 
-    - If a module depends on a module 
-- Simple
+    - If a module depends on a module and creates circular module dependency, this will cause the loader to wait until both finish, which they won't since they wait on each other. Currently there are no checks for this issue. Parralel module initialization worksaround by allowing the rest of the modules to finish, but the loader will never finish causing the server to believe it has taken too long to load.
+- Simple and easy
+    - The module loader by itself (no dependencies) is about 26 KB and including dependencies is about 4,110 KB (as of 7/20/2020). This can potentially be decreased by the implementation.
 
 # Implementors
 To implement, simply create a class implementing `ModuleHandler` e.g `YourModuleHandler`
@@ -30,7 +31,9 @@ e.g
 ```java
 @ModuleInfo(authors = "Fernthedev", name = "TestModule")
 public class TestModuleClass extends Module {
+    public void onEnable() {}
 
+    public void onDisable() {}
 
 }
 ```
