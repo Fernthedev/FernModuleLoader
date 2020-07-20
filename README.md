@@ -45,7 +45,7 @@ moduleLoadingHandler.scanDirectory(new File("./modules", getClass().getClassLoad
 moduleLoadingHandler.loadModule(new File("./modules", getClass().getClassLoader()));
 ```
 
-Look at the [test files as an example](src/test/com/github/fernthedev/modules/test)
+Look at the [test files as an example](src/test/java/com/github/fernthedev/modules/test)
 
 Modules will be loaded asynchronously from one another, so make sure your APIs are Thread-Safe or have a ThreadQueue if needed. 
 
