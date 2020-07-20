@@ -135,9 +135,8 @@ public class ModuleInfoProcessor extends AbstractProcessor {
 
 
                 getMessager().printMessage(NOTE, "Writing plugin metadata to " + fileObject.toUri());
-                BufferedWriter bufferedWriter = new BufferedWriter(fileObject.openWriter());
 
-                try (bufferedWriter) {
+                try (BufferedWriter bufferedWriter = new BufferedWriter(fileObject.openWriter())) {
                     Config<ModuleInfoJSON> yamlConfig = new GsonConfig<>(moduleInfoJSON, file);
 
                     bufferedWriter.write(yamlConfig.configToFileString());

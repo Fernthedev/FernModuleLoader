@@ -9,6 +9,8 @@ apply plugin: 'maven-publish'
 group 'com.github.Fernthedev'
 version '1.0.0'
 
+targetCompatibility = sourceCompatibility = '8'
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
