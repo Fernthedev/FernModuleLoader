@@ -8,6 +8,31 @@ A light-weight library for loading modules. This does not include any API for th
 - Simple and easy
     - The module loader by itself (no dependencies) is about 26 KB and including dependencies is about 4,110 KB (as of 7/20/2020). This can potentially be decreased by the implementation.
 
+# Download
+## Gradle
+```gradle
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+	dependencies {
+	        implementation 'com.github.Fernthedev:FernModuleLoader:1.0.0'
+	}
+```
+## Maven
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<dependency>
+	    <groupId>com.github.Fernthedev</groupId>
+	    <artifactId>FernModuleLoader</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
+```
+
 # Implementors
 To implement, simply create a class implementing `ModuleHandler` e.g `YourModuleHandler`
 and use this code
