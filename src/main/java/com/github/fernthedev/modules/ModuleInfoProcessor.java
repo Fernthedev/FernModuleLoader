@@ -11,7 +11,7 @@ import javax.tools.FileObject;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 import static javax.tools.Diagnostic.Kind.*;
@@ -71,7 +71,7 @@ public class ModuleInfoProcessor extends AbstractProcessor {
 //                if (!Module.class.isAssignableFrom(clazz)) throw new IllegalArgumentException("Class with annotation @" + ModuleInfo.class.getName() + " (" + clazz.getName() + ") must extend " + Module.class.getName());
 
             ModuleInfo moduleInfo = typeElement.getAnnotation(ModuleInfo.class);
-            
+
             if (!moduleInfo.includeInModuleInfoFile()) return false;
 
             AnnotationMirror mirrorS = null;
