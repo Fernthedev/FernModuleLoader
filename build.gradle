@@ -81,6 +81,15 @@ afterEvaluate {
     }
 }
 
+tasks.withType(Javadoc).all {
+    failOnError = false
+}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }

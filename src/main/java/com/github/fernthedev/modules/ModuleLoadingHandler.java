@@ -24,7 +24,7 @@ public class ModuleLoadingHandler {
 
     private Map<Class<?>, Module> moduleMap = new HashMap<>();
     private Map<String, Module> moduleNameMap = new HashMap<>();
-    private List<Pattern> jarPatterns = List.of(
+    private List<Pattern> jarPatterns = Collections.singletonList(
             Pattern.compile(".*\\.jar")
     );
 
