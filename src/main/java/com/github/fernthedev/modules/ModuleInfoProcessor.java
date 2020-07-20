@@ -30,7 +30,6 @@ public class ModuleInfoProcessor extends AbstractProcessor {
         return this.processingEnv.getMessager();
     }
 
-
     @Override
     public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latestSupported();
